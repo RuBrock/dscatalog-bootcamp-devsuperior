@@ -1,6 +1,8 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 import { makePrivateRequest } from 'core/utils/request';
+import { useHistory } from 'react-router-dom';
 import BaseForm from '../../BaseForm';
 import './styles.scss';
 
@@ -8,14 +10,22 @@ type FormState = {
     name: string;
     price: string;
     description: string;
-    imageUrl: string;
+    imgUrl: string;
 }
 
 const Form = () => {
     const { register, handleSubmit, errors } = useForm<FormState>();
+    const history = useHistory();
 
     const onSubmit = (data: FormState) => {
-        makePrivateRequest({ url: '/products', method: 'POST', data });
+        makePrivateRequest({ url: '/products', method: 'POST', data })
+            .then(() => {
+                toast.info('Produto cadastrado com sucesso!');
+                history.push('/admin/products');
+            })
+            .catch(() => {
+                toast.error('Erro ao cadastrar produto!');
+            })
     }
 
     return (
@@ -62,14 +72,14 @@ const Form = () => {
                         <div className="mb-30">
                             <input
                                 ref={register({ required: "Campo obrigatório" })}
-                                name="imageUrl"
+                                name="imgUrl"
                                 type="text"
                                 className="form-control input-base"
                                 placeholder="URL da Imagem"
                             />
-                            {errors.imageUrl && (
+                            {errors.imgUrl && (
                                 <div className="invalid-feedback d-block">
-                                    {errors.imageUrl.message}
+                                    {errors.imgUrl.message}
                                 </div>
                             )}
                         </div>
