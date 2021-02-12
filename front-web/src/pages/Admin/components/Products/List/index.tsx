@@ -5,6 +5,7 @@ import { ProductsResponse } from 'core/types/Product';
 import { makePrivateRequest, makeRequest } from 'core/utils/request';
 import Pagination from 'core/components/Pagination';
 import Card from '../Card';
+import CardLoader from '../Loaders/ProductCardLoader';
 import './styles.scss';
 
 const List = () => {
@@ -59,10 +60,12 @@ const List = () => {
             </button>
 
             <div className="admin-list-container">
-                {
-                    productsResponse?.content.map(product => (
-                        <Card product={product} key={product.id} onRemove={onRemove} />
-                    ))
+                { 
+                    isLoading ? <CardLoader /> : (
+                        productsResponse?.content.map(product => (
+                            <Card product={product} key={product.id} onRemove={onRemove} />
+                        ))
+                    )
                 }
                 {productsResponse && (
                     <Pagination
