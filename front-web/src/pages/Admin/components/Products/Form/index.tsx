@@ -5,7 +5,6 @@ import { makePrivateRequest, makeRequest } from 'core/utils/request';
 import { useHistory, useParams } from 'react-router-dom';
 import BaseForm from '../../BaseForm';
 import './styles.scss';
-import { type } from 'os';
 
 type FormState = {
     name: string;
