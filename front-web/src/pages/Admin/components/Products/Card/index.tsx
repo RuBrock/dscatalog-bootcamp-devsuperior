@@ -44,7 +44,7 @@ const Card = ({ product, onRemove }: Props) => {
                     <Link 
                         to={`/admin/products/${product.id}`}
                         type="button" 
-                        className="btn btn-outline-secondary btn-block btn-edit bd-radius-10 mb-3 font-weight-bold"
+                        className="btn btn-outline-secondary btn-block bd-radius-10 mb-3 font-weight-bold"
                     >
                         EDITAR
                     </Link>
