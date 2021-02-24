@@ -3,6 +3,10 @@
     justify-content: center;
     align-items: center;
     margin-top: 35px;
+
+    a:focus {
+        outline: none;
+    }
 }
 
 .pagination-item {
@@ -24,6 +28,9 @@
     &.active {
         background: #407BFF;
     }
+    &:hover {
+        color: #FFFFFF;
+    }
 }
 
 .pagination-previous {
@@ -43,4 +50,8 @@
 .page-disabled {
     color: #E1E1E1;
     pointer-events: none;
+}
+
+.pagination {
+    align-items: center;
 }

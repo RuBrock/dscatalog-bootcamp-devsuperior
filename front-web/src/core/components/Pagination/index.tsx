@@ -1,37 +1,37 @@
 import React from 'react';
 import { ReactComponent as ArrowIcon } from 'core/assets/images/arrow.svg';
+import ReactPaginate from 'react-paginate';
 import './styles.scss';
-import { generateList } from 'core/utils/list';
 
 type Props = {
     totalPages: number;
-    activePage: number;
     onChange: (item: number) => void;
 }
 
-const Pagination = ({ totalPages, activePage, onChange }: Props) => {
-    const items = generateList(totalPages);
-    const previousClass = totalPages > 0 && activePage > 0 ? 'page-enabled' : 'page-disabled';
-    const nextClass = (activePage + 1) < totalPages ? 'page-enabled' : 'page-disabled';
+const Pagination = ({ totalPages, onChange }: Props) => {
+    const renderIcon = (type: 'previous' | 'next') => (
+        <ArrowIcon 
+            className={`pagination-${type}`}
+            data-testid={`arrow-icon-${type}`}
+        />
+    )
 
     return (
         <div className="pagination-container">
-            <ArrowIcon 
-                className={`pagination-previous ${previousClass}`}
-                onClick={() => onChange(activePage-1)}
-            />
-            {items.map(item => (
-                <div 
-                    key={item}
-                    className={`pagination-item ${item === activePage ? 'active': ''}`}
-                    onClick={() => onChange(item)}
-                >
-                    {item + 1}
-                </div>
-            ))}
-            <ArrowIcon 
-                className={`pagination-next ${nextClass}`} 
-                onClick={() => onChange(activePage+1)}
+            <ReactPaginate 
+                pageCount={totalPages}
+                pageRangeDisplayed={5}
+                marginPagesDisplayed={1}
+                onPageChange={selectedItem => onChange(selectedItem.selected)}
+                previousLabel={renderIcon('previous')}
+                nextLabel={renderIcon('next')}
+                containerClassName="pagination"
+                pageLinkClassName="pagination-item"
+                breakClassName="pagination-item"
+                activeLinkClassName="active"
+                previousClassName="page-enabled"
+                nextClassName="page-enabled"
+                disabledClassName="page-disabled"
             />
         </div>
     );
