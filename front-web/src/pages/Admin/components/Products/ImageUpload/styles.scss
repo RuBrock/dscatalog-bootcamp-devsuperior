@@ -32,9 +32,15 @@
     }
 
     .upload-progress {
-        width: 15%;
         background: #407BFF;
         border-radius: 10px;
         height: 10px;
+    }
+
+    .uploaded-image {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #E1E1E1;
+        border-radius: 10px;
     }
 }
