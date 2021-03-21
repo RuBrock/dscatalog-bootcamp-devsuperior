@@ -6,6 +6,7 @@ import { makePrivateRequest, makeRequest } from 'core/utils/request';
 import { useHistory, useParams } from 'react-router-dom';
 import { Category } from 'core/types/Product';
 import BaseForm from '../../BaseForm';
+import ImageUpload from '../ImageUpload';
 import './styles.scss';
 
 type FormState = {
@@ -129,18 +130,7 @@ const Form = () => {
                         </div>
                         
                         <div className="mb-30">
-                            <input
-                                ref={register({ required: "Campo obrigatório" })}
-                                name="imgUrl"
-                                type="text"
-                                className="form-control input-base"
-                                placeholder="URL da Imagem"
-                            />
-                            {errors.imgUrl && (
-                                <div className="invalid-feedback d-block">
-                                    {errors.imgUrl.message}
-                                </div>
-                            )}
+                            <ImageUpload />
                         </div>
                     </div>
 
