@@ -19,14 +19,12 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="row bg-primary main-nav">
-            <div className="col-3">
-                <Link to="/" className="nav-logo-text">
-                    <h4>DS Catalog</h4>
-                </Link>
-            </div>
+        <nav className="bg-primary main-nav">
+            <Link to="/" className="nav-logo-text">
+                <h4>DS Catalog</h4>
+            </Link>
 
-            <div className="col-6">
+            <div className="menu-container">
                 <ul className="main-menu">
                     <li>
                         <NavLink to="/" exact className="nav-link">
@@ -48,7 +46,7 @@ const Navbar = () => {
                 </ul>
             </div>
 
-            <div className="col-3 text-right">
+            <div className="text-right">
                 {
                     currentUser && (
                         <>

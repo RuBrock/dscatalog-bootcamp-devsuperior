@@ -49,3 +49,17 @@
         font-size: 18px;
     }
 }
+
+
+/*MOBILE BREAKPOINTS*/
+@media (max-width: 768px) {
+    .product-filters-container {
+        width: 100%;
+    }
+}
+
+// @media (max-width: 576px) {
+//     .menu-container {
+//         border: 1px solid green;
+//     }
+// }
