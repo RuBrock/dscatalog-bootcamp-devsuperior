@@ -77,7 +77,7 @@ const List = () => {
     return (
         <div className="admin-products-list">
 
-            <div className="d-flex justify-content-between">
+            <div className="admin-products-actions">
                 <button className="btn btn-primary btn-lg" onClick={handleCreate}>
                     ADICIONAR
                 </button>

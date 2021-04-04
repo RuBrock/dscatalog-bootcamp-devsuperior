@@ -11,10 +11,9 @@ type Props = {
 
 const Card = ({ product, onRemove }: Props) => {
     return (
-        <div className="card-base bd-radius-10 product-card-admin">
-            <div className="row">
+        <div className="card-base product-card-admin">
 
-                <div className="col-2 text-center border-right py-3">
+                <div className="text-center py-3 border-product-img">
                     <img 
                         src={product.imgUrl}
                         alt={product.name}
@@ -22,7 +21,7 @@ const Card = ({ product, onRemove }: Props) => {
                     />
                 </div>
 
-                <div className="col-7 py-3">
+                <div className="card-content">
                     <h3 className="product-card-name-admin">
                         {product.name}
                     </h3>
@@ -40,25 +39,24 @@ const Card = ({ product, onRemove }: Props) => {
                     </div>
                 </div>
 
-                <div className="col-3 pt-3 pr-5">
+                <div className="card-buttons-container">
                     <Link 
                         to={`/admin/products/${product.id}`}
                         type="button" 
-                        className="btn btn-outline-secondary btn-block bd-radius-10 mb-3 font-weight-bold"
+                        className="btn btn-outline-secondary btn-block bd-radius-10 mb-3 font-weight-bold btn-card-product"
                     >
                         EDITAR
                     </Link>
 
                     <button 
                         type="button" 
-                        className="btn btn-outline-danger btn-block bd-radius-10 font-weight-bold"
+                        className="btn btn-outline-danger btn-block bd-radius-10 font-weight-bold btn-card-product"
                         onClick={() => onRemove(product.id)}
                     >
                         EXCLUIR
                     </button>
                 </div>
 
-            </div>
         </div>
     );
 }

@@ -10,3 +10,16 @@
 .admin-list-container {
     margin: 45px 0;
 }
+
+/*MOBILE BREAKPOINTS*/
+@media (max-width: 768px) {
+    .admin-container {
+        flex-direction: column;
+    }
+}
+
+// // @media (max-width: 576px) {
+// //     .menu-container {
+// //         border: 1px solid green;
+// //     }
+// // }
